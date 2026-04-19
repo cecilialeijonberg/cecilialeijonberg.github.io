@@ -181,6 +181,7 @@
   }
 
   @media (max-width: 600px) { .grid { columns: 1; } }
+  @media (max-width: 580px) { .about-grid { grid-template-columns: 1fr !important; } }
 
   .item {
     break-inside: avoid;
@@ -627,11 +628,25 @@
       <ul class="nav-links">
         <li><a href="#work" onclick="showPage('home')">Work</a></li>
         <li><a href="#" onclick="showPage('about')">About</a></li>
-        <li><a href="mailto:hello@cecilialeijonberg.com">Contact</a></li>
+        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
       </ul>
     </nav>
 
-    <section class="hero" id="work">
+    <section class="hero" id="work" style="position:relative;">
+
+      <!-- Sketch collage — upper right -->
+      <div style="position:absolute;top:-1rem;right:0;width:260px;display:flex;flex-direction:column;gap:8px;opacity:0.88;pointer-events:none;" class="sketch-collage">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <img src="sketch-botanical.jpg" alt="Botanical sketch — flowers in a bottle" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;filter:grayscale(15%);">
+          <img src="sketch-city.jpg" alt="City sketch — Copenhagen seagulls and architecture" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;filter:grayscale(15%);">
+        </div>
+        <img src="sketch-vetekatten.jpg" alt="Vete-Katten café sketchbook" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;filter:grayscale(15%);">
+      </div>
+
+      <style>
+        @media (max-width: 720px) { .sketch-collage { display: none !important; } }
+      </style>
+
       <p class="hero-role">Designer &amp; Writer</p>
       <h1 class="hero-h">"Art should be accessible<br><em>to everyone."</em></h1>
       <p style="font-size:13px;font-weight:300;color:var(--text-3);margin-top:0.5rem;margin-bottom:0.25rem;letter-spacing:0.04em;">— Richard Bergh</p>
@@ -644,7 +659,6 @@
       <button class="filter-btn" data-filter="design">Design</button>
       <button class="filter-btn" data-filter="product">Product</button>
       <button class="filter-btn" data-filter="writing">Writing</button>
-      <button class="filter-btn" data-filter="opinion">Opinion</button>
     </div>
 
     <div class="grid" id="grid">
@@ -664,15 +678,34 @@
         </div>
       </div>
 
+      <!-- Emelie — Product -->
+      <div class="item" data-cat="product">
+        <div class="card-product" onclick="showPage('proj-emelie')" style="background:#2C2C2A;">
+          <div class="prod-bg" style="position:relative;width:100%;height:100%;">
+            <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;position:absolute;top:0;left:0;">
+              <rect width="480" height="360" fill="#2C2C2A"/>
+            </svg>
+            <div style="position:absolute;top:16px;left:16px;width:110px;border-radius:16px;overflow:hidden;border:5px solid #1a1a18;box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+              <img src="emelie-landing-screenshot.png" alt="Emelie app landing screen" style="width:100%;display:block;">
+            </div>
+          </div>
+          <div class="prod-overlay">
+            <p class="prod-label">Product</p>
+            <h3 class="prod-title">Emelie, an honest and personal shopper</h3>
+            <p class="prod-desc">Interactive prototype + user flow — built in Figma</p>
+          </div>
+        </div>
+      </div>
+
       <!-- Opinion: Perspective -->
-      <div class="item" data-cat="opinion">
+      <div class="item" data-cat="writing">
         <div class="card-art" onclick="showPage('proj-perspective')">
           <div class="art-meta">
-            <span class="art-cat">Opinion</span>
+            <span class="art-cat">Writing</span>
             <div class="art-dot"></div>
             <span class="art-date">2026</span>
           </div>
-          <h3 class="art-title">It's All About Perspective</h3>
+          <h3 class="art-title">Perspectives</h3>
           <p class="art-desc">A personal opinion piece on how the lens you look through changes everything.</p>
           <span class="art-arrow">↗</span>
         </div>
@@ -694,10 +727,10 @@
       </div>
 
       <!-- Opinion: Inclusion -->
-      <div class="item" data-cat="opinion">
+      <div class="item" data-cat="writing">
         <div class="card-art" onclick="showPage('proj-inclusion')">
           <div class="art-meta">
-            <span class="art-cat">Opinion</span>
+            <span class="art-cat">Writing</span>
             <div class="art-dot"></div>
             <span class="art-date">2026</span>
           </div>
@@ -710,8 +743,9 @@
       <!-- Nespresso -->
       <div class="item" data-cat="design">
         <div class="card-proj" onclick="showPage('proj-nespresso')">
-          <div class="card-img">
+          <div class="card-img" style="display:grid;grid-template-columns:1fr 1fr;overflow:hidden;">
             <img src="nespresso-mug-photo.jpg" alt="Nespresso glass mug outdoors" style="width:100%;height:100%;object-fit:cover;">
+            <img src="nespresso-mug-sketch.jpg" alt="Nespresso mug sketch — a taste and style for all seasons" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="card-body">
             <span class="card-tag tag-design">Design</span>
@@ -722,47 +756,29 @@
         </div>
       </div>
 
-      <!-- About Design — icon placeholder -->
-      <div class="item" data-cat="writing">
-        <div class="card-art" onclick="showPage('proj-aboutdesign')">
-          <div style="display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;background:var(--bg-2);border-radius:var(--radius-md);margin-bottom:0.75rem;">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="8" y="6" width="26" height="36" rx="3" stroke="var(--text-3)" stroke-width="1.5" fill="none"/>
-              <line x1="14" y1="16" x2="28" y2="16" stroke="var(--text-3)" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="14" y1="22" x2="28" y2="22" stroke="var(--text-3)" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="14" y1="28" x2="22" y2="28" stroke="var(--text-3)" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="36" cy="36" r="8" fill="var(--bg-2)" stroke="var(--text-3)" stroke-width="1.5"/>
-              <line x1="33" y1="36" x2="39" y2="36" stroke="var(--text-3)" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="36" y1="33" x2="36" y2="39" stroke="var(--text-3)" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="art-meta">
-            <span class="art-cat">Writing</span>
-          </div>
-          <h3 class="art-title">About Design</h3>
-          <p class="art-desc">A research-backed summary of UX psychology — 106 cognitive biases across information, meaning, time, and memory, with real product case studies.</p>
-          <span class="art-arrow">↗</span>
-        </div>
-      </div>
-
       <!-- STF Campaign -->
       <div class="item" data-cat="design">
         <div class="card-proj" onclick="showPage('proj-stf')">
           <div class="card-img">
             <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg">
               <rect width="480" height="270" fill="#E1F5EE"/>
-              <rect x="30" y="80" width="100" height="110" rx="4" fill="none" stroke="#9FE1CB" stroke-width="1.5"/>
-              <rect x="190" y="40" width="100" height="70" rx="4" fill="none" stroke="#5DCAA5" stroke-width="1.5"/>
-              <rect x="190" y="160" width="100" height="70" rx="4" fill="none" stroke="#5DCAA5" stroke-width="1.5"/>
-              <rect x="350" y="80" width="100" height="110" rx="4" fill="none" stroke="#1D9E75" stroke-width="2"/>
-              <line x1="130" y1="120" x2="190" y2="75" stroke="#9FE1CB" stroke-width="1.2"/>
-              <line x1="130" y1="150" x2="190" y2="195" stroke="#9FE1CB" stroke-width="1.2"/>
-              <line x1="290" y1="75" x2="350" y2="120" stroke="#9FE1CB" stroke-width="1.2"/>
-              <line x1="290" y1="195" x2="350" y2="150" stroke="#9FE1CB" stroke-width="1.2"/>
-              <rect x="48" y="120" width="64" height="5" rx="1" fill="#5DCAA5" opacity="0.5"/>
-              <rect x="208" y="65" width="64" height="5" rx="1" fill="#5DCAA5" opacity="0.5"/>
-              <rect x="208" y="185" width="64" height="5" rx="1" fill="#5DCAA5" opacity="0.5"/>
-              <rect x="362" y="118" width="76" height="6" rx="1" fill="#1D9E75" opacity="0.5"/>
+              <line x1="0" y1="90" x2="480" y2="90" stroke="#9FE1CB" stroke-width="0.5" opacity="0.4"/>
+              <line x1="0" y1="180" x2="480" y2="180" stroke="#9FE1CB" stroke-width="0.5" opacity="0.4"/>
+              <line x1="160" y1="0" x2="160" y2="270" stroke="#9FE1CB" stroke-width="0.5" opacity="0.4"/>
+              <line x1="320" y1="0" x2="320" y2="270" stroke="#9FE1CB" stroke-width="0.5" opacity="0.4"/>
+              <g transform="translate(195, 65)">
+                <rect x="8" y="18" width="54" height="58" rx="10" fill="none" stroke="#0F6E56" stroke-width="2"/>
+                <path d="M18 18 C18 8 52 8 52 18" fill="none" stroke="#0F6E56" stroke-width="2"/>
+                <rect x="16" y="46" width="38" height="22" rx="5" fill="none" stroke="#0F6E56" stroke-width="1.5"/>
+                <line x1="24" y1="46" x2="46" y2="46" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M22 18 L22 78" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M48 18 L48 78" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="22" y1="50" x2="48" y2="50" stroke="#0F6E56" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+              </g>
+              <circle cx="348" cy="135" r="38" fill="none" stroke="#0F6E56" stroke-width="1.5"/>
+              <circle cx="348" cy="135" r="32" fill="#1D9E75" opacity="0.12"/>
+              <text x="348" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="18" font-weight="500" fill="#0F6E56">360</text>
+              <text x="348" y="148" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" letter-spacing="0.12em" fill="#0F6E56" opacity="0.8">CAMPAIGN</text>
             </svg>
           </div>
           <div class="card-body">
@@ -770,27 +786,6 @@
             <h3 class="card-title">Svenska Turistföreningen — 360° Campaign</h3>
             <p class="card-desc">A full campaign brief from Berghs SOC: strategy, art direction, and copywriting with real client meetings, audience research, and concept development.</p>
             <span class="card-arrow">↗</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Emelie — Product -->
-      <div class="item" data-cat="product">
-        <div class="card-product" onclick="showPage('proj-emelie')" style="background:#2C2C2A;">
-          <div class="prod-bg" style="position:relative;width:100%;height:100%;">
-            <!-- original dark background -->
-            <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;position:absolute;top:0;left:0;">
-              <rect width="480" height="360" fill="#2C2C2A"/>
-            </svg>
-            <!-- app screenshot as small phone mockup upper left -->
-            <div style="position:absolute;top:16px;left:16px;width:110px;border-radius:16px;overflow:hidden;border:5px solid #1a1a18;box-shadow:0 8px 24px rgba(0,0,0,0.4);">
-              <img src="emelie-landing-screenshot.png" alt="Emelie app landing screen" style="width:100%;display:block;">
-            </div>
-          </div>
-          <div class="prod-overlay">
-            <p class="prod-label">Product</p>
-            <h3 class="prod-title">Emelie, an honest and personal shopper</h3>
-            <p class="prod-desc">Interactive prototype + user flow — built in Figma</p>
           </div>
         </div>
       </div>
@@ -827,9 +822,9 @@
     <footer>
       <span>© 2026 Cecilia Leijonberg</span>
       <ul class="f-links">
-        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-        <li><a href="https://read.cv" target="_blank">Read.cv</a></li>
-        <li><a href="mailto:hello@cecilialeijonberg.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">Email</a></li>
       </ul>
     </footer>
   </div>
@@ -877,9 +872,9 @@
     <footer>
       <span>© 2026 Cecilia Leijonberg</span>
       <ul class="f-links">
-        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-        <li><a href="https://read.cv" target="_blank">Read.cv</a></li>
-        <li><a href="mailto:hello@cecilialeijonberg.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">Email</a></li>
       </ul>
     </footer>
   </div>
@@ -918,7 +913,7 @@
         <div class="context-card"><p class="context-label">Creative process</p><p class="context-text">Studying what makes great design work by rebuilding it — understanding composition, texture, and editorial storytelling from the inside out.</p></div>
       </div>
     </div>
-    <footer><span>© 2026 Cecilia Leijonberg</span><ul class="f-links"><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li><li><a href="mailto:hello@cecilialeijonberg.com">Email</a></li></ul></footer>
+    <footer><span>© 2026 Cecilia Leijonberg</span><ul class="f-links"><li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">LinkedIn</a></li></ul></footer>
   </div>
 </div>
 
@@ -973,7 +968,7 @@
         <div class="context-card"><p class="context-label">Compositing</p><p class="context-text">Building a realistic campaign image from separate assets — bottle, background, grapefruit, logo — using blend modes and generative fill.</p></div>
       </div>
     </div>
-    <footer><span>© 2026 Cecilia Leijonberg</span><ul class="f-links"><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li><li><a href="mailto:hello@cecilialeijonberg.com">Email</a></li></ul></footer>
+    <footer><span>© 2026 Cecilia Leijonberg</span><ul class="f-links"><li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">LinkedIn</a></li></ul></footer>
   </div>
 </div>
 
@@ -1013,7 +1008,7 @@
         <div class="context-card"><p class="context-label">Process note</p><p class="context-text">Intentionally loose sketching — practicing observation and shape-seeing rather than aiming for perfection. The imperfection is part of the point.</p></div>
       </div>
     </div>
-    <footer><span>© 2026 Cecilia Leijonberg</span><ul class="f-links"><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li><li><a href="mailto:hello@cecilialeijonberg.com">Email</a></li></ul></footer>
+    <footer><span>© 2026 Cecilia Leijonberg</span><ul class="f-links"><li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">LinkedIn</a></li></ul></footer>
   </div>
 </div>
 
@@ -1040,7 +1035,7 @@
         <div class="context-card"><p class="context-label">Memory</p><p class="context-text">The brain favours peaks and endings. The Peak-End Rule, Sensory Appeal, and Delighters are what make experiences stick long after the screen closes.</p></div>
       </div>
     </div>
-    <footer><span>© 2026 Cecilia Leijonberg</span><ul class="f-links"><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li><li><a href="mailto:hello@cecilialeijonberg.com">Email</a></li></ul></footer>
+    <footer><span>© 2026 Cecilia Leijonberg</span><ul class="f-links"><li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">LinkedIn</a></li></ul></footer>
   </div>
 </div>
 
@@ -1089,7 +1084,7 @@
       </div>
       <p style="font-size:12px;font-weight:300;color:var(--text-3);margin-top:0.75rem;">Can't see the embed? <a href="https://www.figma.com/design/LDsATf6nfUHNdZapRw4pMb/STF-UX?t=rSNBmweEORSNFkiW-0" target="_blank" style="color:var(--text-2);text-decoration:underline;">Open in Figma ↗</a></p>
     </div>
-    <footer><span>© 2026 Cecilia Leijonberg</span><ul class="f-links"><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li><li><a href="mailto:hello@cecilialeijonberg.com">Email</a></li></ul></footer>
+    <footer><span>© 2026 Cecilia Leijonberg</span><ul class="f-links"><li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">LinkedIn</a></li></ul></footer>
   </div>
 </div>
 
@@ -1099,7 +1094,7 @@
     <nav><span class="nav-name" onclick="showPage('home')">Cecilia Leijonberg</span><button class="back-btn" onclick="showPage('home')">← Back to work</button></nav>
     <div class="proj-hero">
       <span class="card-tag tag-opinion">Opinion</span>
-      <h1 class="proj-h">It's All About<br><em>Perspective</em></h1>
+      <h1 class="proj-h"><em>Perspectives</em></h1>
       <p class="proj-desc">A personal opinion piece on how the lens you bring to a situation shapes everything you see in it — and what happens when you choose to shift it.</p>
       <div class="meta-row"><div><p class="meta-label">Published</p><p class="meta-val">2026</p></div><div><p class="meta-label">Type</p><p class="meta-val">Opinion / Essay</p></div></div>
     </div>
@@ -1107,7 +1102,7 @@
       <div class="section-header"><span class="section-title">Article</span><div class="section-line"></div></div>
       <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--text-2);max-width:640px;">Full article content coming soon — add your article text here from Notion.</p>
     </div>
-    <footer><span>© 2026 Cecilia Leijonberg</span><ul class="f-links"><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li><li><a href="mailto:hello@cecilialeijonberg.com">Email</a></li></ul></footer>
+    <footer><span>© 2026 Cecilia Leijonberg</span><ul class="f-links"><li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">LinkedIn</a></li></ul></footer>
   </div>
 </div>
 
@@ -1124,7 +1119,150 @@
       <div class="section-header"><span class="section-title">Article</span><div class="section-line"></div></div>
       <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--text-2);max-width:640px;">Full article content coming soon — add your article text here from Notion.</p>
     </div>
-    <footer><span>© 2026 Cecilia Leijonberg</span><ul class="f-links"><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li><li><a href="mailto:hello@cecilialeijonberg.com">Email</a></li></ul></footer>
+    <footer><span>© 2026 Cecilia Leijonberg</span><ul class="f-links"><li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">LinkedIn</a></li></ul></footer>
+  </div>
+</div>
+
+<!-- ═══ ABOUT PAGE ═══ -->
+<div class="page" id="page-about">
+  <div class="container">
+    <nav>
+      <span class="nav-name" onclick="showPage('home')">Cecilia Leijonberg</span>
+      <ul class="nav-links">
+        <li><a href="#" onclick="showPage('home')">Work</a></li>
+        <li><a href="#" onclick="showPage('about')" style="color:var(--text);">About</a></li>
+        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div style="max-width:720px;padding:3rem 0 6rem;">
+
+      <p style="font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:1.5rem;">About</p>
+
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(36px,5.5vw,56px);line-height:1.08;letter-spacing:-0.03em;color:var(--text);margin-bottom:1rem;">I work with innovation,<br><em style="color:var(--text-2);">product and love design.</em></h1>
+
+      <p style="font-size:16px;font-weight:300;line-height:1.9;color:var(--text-2);margin-bottom:3rem;max-width:560px;">Read about projects related to design, inspiration and writing pieces on my page.</p>
+
+      <div style="height:0.5px;background:var(--border);margin-bottom:3rem;"></div>
+
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:start;">
+
+        <div>
+          <p style="font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:1rem;">About me</p>
+          <div style="display:flex;flex-direction:column;gap:0.75rem;">
+            <div style="background:var(--bg-2);border-radius:var(--radius-md);padding:0.75rem 1rem;">
+              <p style="font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:0.25rem;">Education</p>
+              <p style="font-size:12px;font-weight:300;color:var(--text-2);line-height:1.6;">MSc Industrial Engineering & Intellectual Property</p>
+            </div>
+            <div style="background:var(--bg-2);border-radius:var(--radius-md);padding:0.75rem 1rem;">
+              <p style="font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:0.25rem;">Education</p>
+              <p style="font-size:12px;font-weight:300;color:var(--text-2);line-height:1.6;">BBA Business Administration Marketing</p>
+            </div>
+            <div style="background:var(--bg-2);border-radius:var(--radius-md);padding:0.75rem 1rem;">
+              <p style="font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:0.25rem;">Experience</p>
+              <p style="font-size:12px;font-weight:300;color:var(--text-2);line-height:1.6;">10+ countries lived & worked in</p>
+            </div>
+            <div style="background:var(--bg-2);border-radius:var(--radius-md);padding:0.75rem 1rem;">
+              <p style="font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:0.25rem;">Specialisation</p>
+              <p style="font-size:12px;font-weight:300;color:var(--text-2);line-height:1.6;">Portfolio management & international business development</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p style="font-family:'DM Serif Display',serif;font-size:18px;line-height:1.8;color:var(--text);margin-bottom:1.5rem;font-weight:400;">I am a product & innovation leader with international expertise from having worked and lived in 10+ countries, specializing in portfolio management and international business development & impact.</p>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--text-2);margin-bottom:1.5rem;">My background spans Industrial Engineering & Intellectual Property (MSc), Business Administration Marketing (BBA), and Design — enabling me to connect technology, innovation with commercial leadership and strategy.</p>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--text-2);margin-bottom:2.5rem;">Passionate about leveraging design and a global perspective to drive sustainable growth and impact.</p>
+
+          <a href="#" onclick="showPage('contact')" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:var(--text);color:var(--bg);border-radius:999px;font-size:12px;font-weight:400;letter-spacing:0.05em;text-decoration:none;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+            Get in touch ↗
+          </a>
+        </div>
+
+      </div>
+
+      <div style="height:0.5px;background:var(--border);margin:3rem 0;"></div>
+
+      <div>
+        <p style="font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:1.5rem;">Engagements</p>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+
+          <a href="https://womenintech.se/speakers/cecilia-johansson/" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;background:var(--bg-2);border-radius:var(--radius-lg);border:0.5px solid var(--border);text-decoration:none;transition:border-color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--border-2)';this.style.background='var(--bg-3)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--bg-2)'">
+            <div>
+              <p style="font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:0.3rem;">Speaker — Women in Tech Sweden</p>
+              <p style="font-size:15px;font-weight:300;color:var(--text);margin-bottom:0.2rem;">Progression, not perfection</p>
+              <p style="font-size:12px;font-weight:300;color:var(--text-2);">A talk on leadership, impact and building a career across 10+ countries</p>
+            </div>
+            <span style="font-size:18px;color:var(--text-3);flex-shrink:0;margin-left:1rem;">↗</span>
+          </a>
+
+          <a href="https://stockholm.impacthub.net/a-new-trajectory-via-biotechnological-advances/" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;background:var(--bg-2);border-radius:var(--radius-lg);border:0.5px solid var(--border);text-decoration:none;transition:border-color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--border-2)';this.style.background='var(--bg-3)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--bg-2)'">
+            <div>
+              <p style="font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:0.3rem;">Article — Impact Hub Stockholm</p>
+              <p style="font-size:15px;font-weight:300;color:var(--text);margin-bottom:0.2rem;">A New Trajectory via Biotechnological Advances</p>
+              <p style="font-size:12px;font-weight:300;color:var(--text-2);">On the future of biotech, healthcare and the UN Global Gap Summit at Cambridge</p>
+            </div>
+            <span style="font-size:18px;color:var(--text-3);flex-shrink:0;margin-left:1rem;">↗</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <span>© 2026 Cecilia Leijonberg</span>
+      <ul class="f-links">
+        <li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">LinkedIn</a></li>
+      </ul>
+    </footer>
+  </div>
+</div>
+
+<!-- ═══ CONTACT PAGE ═══ -->
+<div class="page" id="page-contact">
+  <div class="container">
+    <nav>
+      <span class="nav-name" onclick="showPage('home')">Cecilia Leijonberg</span>
+      <ul class="nav-links">
+        <li><a href="#" onclick="showPage('home')">Work</a></li>
+        <li><a href="#" onclick="showPage('about')">About</a></li>
+        <li><a href="#" onclick="showPage('contact')" style="color:var(--text);">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div style="max-width:600px;padding:4rem 0 6rem;">
+      <p style="font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:1.5rem;">Contact</p>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(42px,6vw,64px);line-height:1.05;letter-spacing:-0.03em;color:var(--text);margin-bottom:2rem;">Get in touch</h1>
+
+      <div style="height:0.5px;background:var(--border);margin-bottom:2.5rem;"></div>
+
+      <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--text-2);margin-bottom:2.5rem;">I'm always open to new conversations — whether it's a project, a collaboration, or just a creative exchange. The best way to reach me is through LinkedIn.</p>
+
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <a href="https://www.linkedin.com/in/cecileijon/" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;background:var(--bg-2);border-radius:var(--radius-lg);border:0.5px solid var(--border);text-decoration:none;transition:border-color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--border-2)';this.style.background='var(--bg-3)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--bg-2)'">
+          <div>
+            <p style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:0.3rem;">LinkedIn</p>
+            <p style="font-size:15px;font-weight:300;color:var(--text);">Cecilia Leijonberg</p>
+          </div>
+          <span style="font-size:18px;color:var(--text-3);">↗</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/cecileijon/" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;background:var(--bg-2);border-radius:var(--radius-lg);border:0.5px solid var(--border);text-decoration:none;transition:border-color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--border-2)';this.style.background='var(--bg-3)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--bg-2)'">
+          <div>
+            <p style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:0.3rem;">Reach out directly</p>
+            <p style="font-size:15px;font-weight:300;color:var(--text);">Send a message on LinkedIn</p>
+          </div>
+          <span style="font-size:18px;color:var(--text-3);">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      <span>© 2026 Cecilia Leijonberg</span>
+      <ul class="f-links">
+        <li><a href="https://www.linkedin.com/in/cecileijon/" target="_blank">LinkedIn</a></li>
+      </ul>
+    </footer>
   </div>
 </div>
 
