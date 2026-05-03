@@ -82,7 +82,7 @@
   .hero .sketch.s1{top:4%;left:-4%;width:32%;transform:rotate(-4deg);opacity:.42}
   .hero .sketch.s2{top:38%;right:-6%;width:38%;transform:rotate(3deg);opacity:.32}
   .hero .sketch.s3{bottom:-10%;left:8%;width:24%;transform:rotate(-2deg);opacity:.36}
-  .hero .sketch.s4{bottom:5%;right:5%;width:28%;transform:rotate(1.5deg);opacity:.35}
+  .hero .sketch.s4{bottom:8%;right:4%;width:26%;transform:rotate(1.5deg);opacity:.33}
 
   .hero .meta{
     position:absolute;top:50%;left:40px;transform:translateY(-50%);
@@ -435,8 +435,8 @@
     <img src="sketch-vetekatten.png" alt="Vete-Katten sketchbook" />
   </div>
 
-  <div class="layer sketch s4" data-speed="0.45">
-    <img src="sketch-lund.jpg" alt="Lund sketch — cathedral and bicycle" />
+  <div class="layer sketch s4" data-speed="0.5">
+    <img src="sketch-lund.jpg" alt="Lund — cathedral, bicycle and figure" />
   </div>
 
   <div class="meta">
@@ -491,7 +491,7 @@
   <div class="grid" id="grid">
 
     <!-- Featured: Recreating Inspirations -->
-    <article class="card c-6 reveal" data-cat="design" onclick="openProject('proj-recreating')" style="cursor:pointer;">
+    <article class="card c-7 reveal" data-cat="design" onclick="openProject('proj-recreating')" style="cursor:pointer;">
       <div class="cover tall"><img src="recreating-result.png" alt="Spring Hope cover" onerror="this.outerHTML='&lt;div class=ph&gt;Spring Hope · cover&lt;/div&gt;'"/></div>
       <div class="meta"><span class="tag">— Design / Editorial</span></div>
       <h4>Recreating <em style="font-style:italic;color:var(--accent)">Inspirations</em></h4>
@@ -499,7 +499,7 @@
     </article>
 
     <!-- Emelie -->
-    <article class="card c-6 reveal reveal-d2" data-cat="product" onclick="openProject('proj-emelie')" style="cursor:pointer;">
+    <article class="card c-5 reveal reveal-d2" data-cat="product" onclick="openProject('proj-emelie')" style="cursor:pointer;">
       <div class="cover tall"><img src="emelie-landing-screenshot.png" style="object-fit:cover;object-position:top;" alt="Emelie app" onerror="this.outerHTML='&lt;div class=ph&gt;Emelie · landing&lt;/div&gt;'"/></div>
       <div class="meta"><span class="tag">— Product / Figma</span></div>
       <h4>Emelie, an <em style="font-style:italic;color:var(--accent)">honest</em> personal shopper</h4>
@@ -918,16 +918,15 @@
     <button class="proj-back" onclick="closeProject()">← Back to work</button>
     <h1>Recreating <em>Inspirations</em></h1>
     <div class="proj-meta"><span>Design</span><span>Editorial</span><span>Photoshop</span></div>
-    <p>I found this picture on Instagram — since I'm interested in working on communication, I think working with covers for magazines is an interesting creative step. I studied what the artist did and then recreated my own version from scratch.</p>
-    <p>It looks like the artist used several layers with different textures, white small text, edits of the subject matter (hand with flower), a marble texture for the title's text background, and a self-made typography. I used these observations as my starting point.</p>
+    <p>Found a magazine cover on Instagram and recreated it from scratch — studying how it was made and developing my Adobe Suite skills through layered textures, marble typography, and editorial art direction.</p>
     <div class="proj-g2">
-      <img src="recreating-inspiration.png" alt="Solitude — original inspiration" style="aspect-ratio:3/4;">
-      <img src="recreating-result.png" alt="Spring Hope — Cecilia's recreation" style="aspect-ratio:3/4;">
+      <img src="recreating-inspiration.png" alt="Solitude — original" style="aspect-ratio:3/4;">
+      <img src="recreating-result.png" alt="Spring Hope — my version" style="aspect-ratio:3/4;">
     </div>
     <div class="proj-cards">
       <div class="proj-card"><div class="proj-label">Inspiration</div><div class="proj-val">Solitude — found on Instagram</div></div>
       <div class="proj-card"><div class="proj-label">Result</div><div class="proj-val">Spring Hope — my own version</div></div>
-      <div class="proj-card"><div class="proj-label">Technique</div><div class="proj-val">Layered textures, marble typography, subject matter editing, self-made typeface</div></div>
+      <div class="proj-card"><div class="proj-label">Technique</div><div class="proj-val">Layered textures, marble typography, compositing</div></div>
       <div class="proj-card"><div class="proj-label">Tools</div><div class="proj-val">Adobe Photoshop</div></div>
     </div>
   </div>
@@ -939,8 +938,8 @@
     <h1>Emelie, an <em>honest</em> personal shopper</h1>
     <div class="proj-meta"><span>Product</span><span>Figma</span><span>Prototype</span></div>
     <p>A sustainable fashion companion that gives honest, unsponsored scores on clothing across materials, sustainability, and styling — cutting through noise to help you shop with intention.</p>
-    <div style="display:flex;justify-content:center;margin-bottom:1.5rem;">
-      <iframe src="Emelie.html" style="width:402px;max-width:100%;height:874px;border:none;border-radius:48px;box-shadow:0 40px 80px rgba(0,0,0,0.15);"></iframe>
+    <div style="background:#F5F1EC;border-radius:16px;padding:2rem;display:flex;justify-content:center;margin-bottom:1.5rem;">
+      <img src="emelie-landing-screenshot.png" alt="Emelie app landing screen" style="width:320px;max-width:100%;border-radius:32px;box-shadow:0 20px 60px rgba(0,0,0,0.15);margin-bottom:0;">
     </div>
     <div class="proj-cards">
       <div class="proj-card"><div class="proj-label">Type</div><div class="proj-val">Product design & prototype</div></div>
@@ -956,10 +955,7 @@
     <button class="proj-back" onclick="closeProject()">← Back to work</button>
     <h1>Beverage <em>Brand Identity</em></h1>
     <div class="proj-meta"><span>Design</span><span>Brand Identity</span><span>Photoshop & Illustrator</span></div>
-    <p>A full brand identity project for Saint Ci — a Nordic luxury soda. The process started with research into 2024 beverage trends, focusing on luxury positioning and clean aesthetics.</p>
-    <p>I rendered the bottle by changing a normal bottle picture into a pink bottle, copied it, rotated it 180 degrees and rendered it with opacity settings to create a reflection effect. I then worked on brand attributions, brand values, and a branding map to define the concept and colour direction.</p>
-    <p>I traced my hand-drawn sketches in Illustrator to create logotypes. I landed on two prototypes, both symbolizing the sailing lifestyle, with an anchor-like "t" in the title so they pair well even when not used in direct association. I went with the first prototype as the biggest trends in the drink industry right now favour a clean aesthetic.</p>
-    <p>I then used the "warp" function in Photoshop to get a more realistic perspective of the logotype on the product. Finally, I added a background image, extended it using cropping, added the bottle, and used generative AI-filled grapefruit images to give it a realistic campaign look.</p>
+    <p>A full brand identity for Saint Ci — a Nordic luxury soda inspired by sailboat lifestyle and grapefruit flavours. From branding maps and hand-drawn sketches to bottle rendering, logotype, and final campaign mockup.</p>
     <img src="beverage-final.png" alt="Saint Ci final campaign" style="aspect-ratio:16/9;">
     <div class="proj-g2">
       <img src="beverage-bottle-rendering.png" alt="Bottle rendering" style="aspect-ratio:3/4;">
@@ -970,12 +966,6 @@
       <img src="beverage-logo-v2.png" alt="Logo v2" style="aspect-ratio:1;background:#f5f5f5;object-fit:contain;padding:1rem;">
     </div>
     <img src="beverage-warp.png" alt="Warp process" style="aspect-ratio:16/9;">
-    <div class="proj-cards">
-      <div class="proj-card"><div class="proj-label">Key learning</div><div class="proj-val">Layering — merging layers too early meant I couldn't make later changes like removing the outer-glow effect</div></div>
-      <div class="proj-card"><div class="proj-label">Tools</div><div class="proj-val">Photoshop & Illustrator</div></div>
-      <div class="proj-card"><div class="proj-label">Brand</div><div class="proj-val">Saint Ci — Nordic luxury soda</div></div>
-      <div class="proj-card"><div class="proj-label">Research</div><div class="proj-val">2024 beverage trends — luxury positioning, clean aesthetics</div></div>
-    </div>
   </div>
 </div>
 
